@@ -6,7 +6,7 @@ const AWS = require('aws-sdk'); // eslint-disable-line import/no-extraneous-depe
 const s3 = new AWS.S3();
 
 module.exports.save = (event, context, callback) => {
-  fetch('s3://indunil.trigger/obama.jpg')
+  fetch('https://drive.google.com/open?id=1qUQdLIvOW_SdYl_64afr09mX5lSo99eL')
     .then((response) => {
       if (response.ok) {
         return response;
