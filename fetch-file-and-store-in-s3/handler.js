@@ -19,7 +19,7 @@ module.exports.save = (event, context, callback) => {
       s3.putObject({
         "Body": buffer,
         "Bucket": "indunil.trigger",
-        "Key": event.key
+        "Key": "10"
       }).promise()
     ))
     .then(v => callback(null, v), callback);
