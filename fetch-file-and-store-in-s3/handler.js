@@ -6,20 +6,20 @@ const AWS = require('aws-sdk'); // eslint-disable-line import/no-extraneous-depe
 const s3 = new AWS.S3();
 
 module.exports.save = (event, context, callback) => {
-  fetch(event.image_url)
+  fetch('s3://indunil.trigger/obama.jpg')
     .then((response) => {
       if (response.ok) {
         return response;
       }
       return Promise.reject(new Error(
-        `Failed to fetch ${response.url}: ${response.status} ${response.statusText}`));
+            `Failed to fetch ${response.url}: ${response.status} ${response.statusText}`));
     })
     .then(response => response.buffer())
     .then(buffer => (
       s3.putObject({
-        "Body": "s3://indunil.trigger/obama.jpg",
-        "Bucket": "indunil.trigger",
-        "Key": "obama"
+        Bucket: process.env.BUCKET,
+        Key: event.key,
+        Body: buffer,
       }).promise()
     ))
     .then(v => callback(null, v), callback);
