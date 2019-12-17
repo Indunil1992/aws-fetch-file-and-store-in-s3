@@ -42,6 +42,15 @@
               "Resource": "arn:aws:s3:::<your-bucket-name>/*"
             }
           ]
+        },
+        "testCases": {
+          "27b3d964-d8fd-4141-a7e6-c19e8d03c312": {
+            "id": "27b3d964-d8fd-4141-a7e6-c19e8d03c312",
+            "name": "Test event",
+            "functionId": "ae748235-d2f3-41f1-82ff-2895df0c5b35",
+            "event": "{\r\n    \"key1\": \"value1\",\r\n    \"key2\": \"value2\",\r\n    \"key3\": \"value3\"\r\n}",
+            "eventTemplate": "hello-world"
+          }
         }
       },
       "91e34586-a31d-4a6f-a130-3a8c630f85bd": {
@@ -114,7 +123,7 @@
       {
         "lambdaId": "ae748235-d2f3-41f1-82ff-2895df0c5b35",
         "varKey": "BUCKET",
-        "varValue": "indunil1",
+        "varValue": "test.indunil1",
         "shouldPersist": true,
         "displayOnly": false,
         "editable": true
@@ -126,6 +135,14 @@
         "shouldPersist": false,
         "displayOnly": false,
         "editable": false
+      },
+      {
+        "lambdaId": "ae748235-d2f3-41f1-82ff-2895df0c5b35",
+        "varKey": "image_url",
+        "varValue": "https://github.com/Indunil1992/aa/blob/master/obama.jpg",
+        "shouldPersist": true,
+        "displayOnly": false,
+        "editable": true
       }
     ],
     "packageJSON": {
@@ -150,7 +167,7 @@
     "projectRegion": "us-west-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1576572884911
+    "lastSave": 1576574874747
   },
   "VCS_STATE": {
     "provider": "GitHub",
